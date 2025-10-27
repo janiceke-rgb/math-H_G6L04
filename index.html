@@ -8,6 +8,41 @@
 </head>
 <body>
 
+    <div id="animal-data" style="display: none; margin-bottom: 20px; padding: 0 10px;">
+        <h3>動物體重資訊 (非洲象為基準量 6 公噸)</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>動物</th>
+                    <th>體重 (公噸)</th>
+                    <th>角色</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>非洲象</td>
+                    <td>6</td>
+                    <td>**基準量 (1)**</td>
+                </tr>
+                <tr>
+                    <td>抹香鯨</td>
+                    <td>30</td>
+                    <td>比較量</td>
+                </tr>
+                <tr>
+                    <td>鯨鯊</td>
+                    <td>18</td>
+                    <td>比較量</td>
+                </tr>
+                <tr>
+                    <td>犀牛</td>
+                    <td>3</td>
+                    <td>比較量</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
     <div id="game-container">
 
         <div id="welcome-screen" class="screen active">
@@ -15,48 +50,17 @@
             <p>歡迎來到 6-1 基準量與比較量挑戰</p>
             <div class="learning-tip">
                 <p><strong>學習小叮嚀：</strong></p>
-                <p>1. 當作「1」的量，稱為 <strong>基準量</strong></p>
-                <p>2. 被比較的量，稱為 <strong>比較量</strong></p>
+                <p>1. 當作「1」的量,稱為 <strong>基準量</strong></p>
+                <p>2. 被比較的量,稱為 <strong>比較量</strong></p>
                 <p>3. 公式：<strong>比較量 ÷ 基準量 = 幾倍</strong></p>
             </div>
             <button id="start-btn">開始遊戲</button> 
         </div>
 
         <div id="intro-screen" class="screen">
-            <h2>介紹參賽者！</h2>
-            <p>在這次比賽中，我們要以「非洲象」(6公噸)當作 <strong>基準量 (當作 1)</strong>。</p>
-            <table>
-                <thead>
-                    <tr>
-                        <th>動物</th>
-                        <th>體重 (公噸)</th>
-                        <th>角色</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>非洲象</td>
-                        <td>6</td>
-                        <td><strong>基準量 (1)</strong></td>
-                    </tr>
-                    <tr>
-                        <td>抹香鯨</td>
-                        <td>30</td>
-                        <td>比較量</td>
-                    </tr>
-                    <tr>
-                        <td>鯨鯊</td>
-                        <td>18</td>
-                        <td>比較量</td>
-                    </tr>
-                    <tr>
-                        <td>犀牛</td>
-                        <td>3</td>
-                        <td>比較量</td>
-                    </tr>
-                </tbody>
-            </table>
-            <button id="start-challenge-btn">我懂了，開始挑戰！</button>
+            <h2>參賽者資訊</h2>
+            <p>請確認各動物體重,這次比賽以「非洲象」當作**基準量**。</p>
+            <button id="start-challenge-btn">我懂了,開始挑戰！</button>
         </div>
 
         <div id="question-screen" class="screen">
@@ -80,16 +84,8 @@
 
         <div id="finish-screen" class="screen">
             <h2>恭喜你！全部答對了！</h2>
-            <p>你已經學會了：</p>
-            <ul>
-                <li>非洲象是「基準量」</li>
-                <li>用「比較量 ÷ 基準量」算出倍數！</li>
-            </ul>
+            <p>你已經成功掌握了基準量與比較量的關係。</p>
             <button id="restart-btn">再玩一次</button>
         </div>
 
     </div>
-
-    <script src="script.js"></script>
-</body>
-</html>
