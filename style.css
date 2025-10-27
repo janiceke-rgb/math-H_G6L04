@@ -3,6 +3,7 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Microsoft JhengHei", "Helvetica Neue", sans-serif;
     background-color: #f4f7f6;
     display: flex;
+    flex-direction: column; /* 允許項目堆疊 */
     justify-content: center;
     align-items: center;
     min-height: 100vh;
@@ -59,21 +60,26 @@ h2 {
     display: none; /* 預設隱藏 */
 }
 
-/* 表格 */
-table {
+/* 表格 (for animal-data) */
+#animal-data {
+    width: 90%;
+    max-width: 500px;
+    margin-bottom: 20px;
+}
+#animal-data table {
     width: 100%;
     border-collapse: collapse;
-    margin: 20px 0;
+    margin: 10px 0 0 0;
+    font-size: 14px;
 }
-th, td {
+#animal-data th, #animal-data td {
     border: 1px solid #ddd;
-    padding: 10px;
+    padding: 8px;
 }
-th {
+#animal-data th {
     background-color: #f2f2f2;
 }
-/* 表格中的基準量 */
-tbody tr:first-child {
+#animal-data tbody tr:first-child {
     background-color: #e0f2f1;
 }
 
@@ -122,13 +128,11 @@ button:hover {
 #feedback-text {
     font-size: 16px;
     font-weight: bold;
-    min-height: 20px; /* 佔個位置，避免跳動 */
+    min-height: 20px;
 }
-/* 答對的樣式 */
 .correct {
     color: green;
 }
-/* 答錯的樣式 */
 .incorrect {
     color: red;
 }
