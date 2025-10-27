@@ -1,7 +1,7 @@
 // 等待 HTML 內容都載入完成後再執行
 document.addEventListener('DOMContentLoaded', () => {
     
-    // --- 腳本啟動測試點 ---
+    // --- 腳本啟動測試點 (確認腳本有無啟動) ---
     console.log("✅ 遊戲腳本 (script.js) 已成功啟動！");
 
     // --- 1. 抓取所有需要的 HTML 元件 ---
@@ -11,6 +11,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const introScreen = document.getElementById('intro-screen');
     const questionScreen = document.getElementById('question-screen');
     const finishScreen = document.getElementById('finish-screen');
+    
+    // 新增：抓取動物體重資訊框
+    const animalData = document.getElementById('animal-data'); 
 
     // 抓取所有按鈕
     const startBtn = document.getElementById('start-btn');
@@ -57,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- 3. 核心功能函式 ---
 
-    // 函式：切換畫面
+    // 函式：切換畫面 (已加入表格顯示控制)
     function showScreen(screenToShow) {
         // 隱藏所有畫面
         screens.forEach(screen => {
@@ -65,11 +68,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         // 只顯示指定的畫面
         screenToShow.classList.add('active');
+        
+        // !!! 邏輯：控制動物資訊表的顯示 !!!
+        if (screenToShow === welcomeScreen) {
+            // 如果是歡迎畫面，隱藏表格
+            animalData.style.display = 'none';
+        } else {
+            // 如果是介紹、問題或結束畫面，顯示表格
+            animalData.style.display = 'block';
+        }
+        // !!! 結束邏輯 !!!
     }
 
     // 函式：顯示特定題目
     function showQuestion(index) {
-        // 從題目資料陣列中抓出目前的題目
         const question = questions[index];
         
         // 更新 HTML 上的文字
@@ -77,10 +89,10 @@ document.addEventListener('DOMContentLoaded', () => {
         questionHint.innerHTML = `<strong>提示小幫手：</strong><br>比較量 (體重): ${question.comparisonAmount} 公噸<br>基準量 (非洲象): ${baseAmount} 公噸<br><br>${question.hint}`;
         
         // 重置上一題的狀態
-        questionHint.style.display = 'none'; // 隱藏提示
-        answerInput.value = ''; // 清空作答欄
-        feedbackText.innerText = ''; // 清空回饋
-        feedbackText.className = ''; // 清除回饋的顏色
+        questionHint.style.display = 'none';
+        answerInput.value = '';
+        feedbackText.innerText = '';
+        feedbackText.className = '';
     }
 
     // 函式：檢查答案
@@ -132,10 +144,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- 4. 幫按鈕綁定功能 (事件監聽) ---
     
-    // 按下「開始遊戲」
+    // 按下「開始遊戲」 (已加強檢查)
     if (startBtn) {
         startBtn.addEventListener('click', () => {
-            console.log("➡️「開始遊戲」按鈕被點擊了！準備切換畫面..."); // <-- 測試點
+            console.log("➡️「開始遊戲」按鈕被點擊了！"); 
             showScreen(introScreen); // 顯示介紹畫面
         });
     } else {
